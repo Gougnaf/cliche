@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{E96E194A-CC18-47C2-B3A8-D3F63349F90B}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cliche.Fluent</RootNamespace>
+    <AssemblyName>Cliche.Fluent</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16278.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16278.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <PackageCertificateKeyFile>Cliche.Fluent_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>5.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <!-- Nuget package references -->
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>2.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\en-us\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activation\ActivationHandler.cs" />
+    <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\Movie.cs" />
+    <Compile Include="Services\ActivationService.cs" />
+    <Compile Include="Activation\DefaultLaunchActivationHandler.cs" />
+    <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Services\SampleDataService.cs" />
+    <Compile Include="Views\CharactersPageDetailControl.xaml.cs">
+      <DependentUpon>CharactersPageDetailControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CharactersPageDetailPage.xaml.cs">
+      <DependentUpon>CharactersPageDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CharactersPagePage.xaml.cs">
+      <DependentUpon>CharactersPagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MoviePagePage.xaml.cs">
+      <DependentUpon>MoviePagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MoviesPageDetailControl.xaml.cs">
+      <DependentUpon>MoviesPageDetailControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MoviesPageDetailPage.xaml.cs">
+      <DependentUpon>MoviesPageDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MoviesPagePage.xaml.cs">
+      <DependentUpon>MoviesPagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShellNavigationItem.cs" />
+    <Compile Include="Views\ShellPage.xaml.cs">
+      <DependentUpon>ShellPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Styles\_Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\_FontSizes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\_Thickness.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\TextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Views\CharactersPageDetailControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CharactersPageDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CharactersPagePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MoviePagePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MoviesPageDetailControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MoviesPageDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MoviesPagePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ShellPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\ResourceExtensions.cs" />
+    <Compile Include="Helpers\Singleton.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Assets\Images\DesignSampleToRemove.png" />
+    <Content Include="Assets\Images\DesignSampleToRemove2.png" />
+    <Content Include="Assets\Images\DesignSampleToRemove3.png" />
+    <Content Include="Assets\Images\gandalf.jpg" />
+    <Content Include="Assets\Images\karate-kid-affiche.jpg" />
+    <Content Include="Assets\Images\Le_Seigneur_des_Anneaux_La_Communaute_de_l_anneau.jpg" />
+    <Content Include="Assets\Images\movie_LordOfRing_nb.jpg" />
+    <Content Include="Assets\Images\perso_frodonSacquet.jpg" />
+    <Content Include="Assets\Images\poster-france-back-to-the-future-1-different-2.jpg" />
+    <Content Include="Assets\Picto\filmAffiche-%281%29.jpg" />
+    <Content Include="Assets\Picto\filmAffiche-%2810%29.jpg" />
+    <Content Include="Assets\Picto\filmAffiche-%2811%29.jpg" />
+    <Content Include="Assets\Picto\filmAffiche-%2812%29.jpg" />
+    <Content Include="Assets\Picto\filmAffiche-%282%29.jpg" />
+    <Content Include="Assets\Picto\filmAffiche-%283%29.jpg" />
+    <Content Include="Assets\Picto\filmAffiche-%284%29.jpg" />
+    <Content Include="Assets\Picto\filmAffiche-%285%29.jpg" />
+    <Content Include="Assets\Picto\filmAffiche-%286%29.jpg" />
+    <Content Include="Assets\Picto\filmAffiche-%287%29.jpg" />
+    <Content Include="Assets\Picto\filmAffiche-%288%29.jpg" />
+    <Content Include="Assets\Picto\filmAffiche-%289%29.jpg" />
+    <Content Include="Assets\Picto\filmThumb-%281%29.jpg" />
+    <Content Include="Assets\Picto\filmThumb-%2810%29.jpg" />
+    <Content Include="Assets\Picto\filmThumb-%2811%29.jpg" />
+    <Content Include="Assets\Picto\filmThumb-%2812%29.jpg" />
+    <Content Include="Assets\Picto\filmThumb-%2813%29.jpg" />
+    <Content Include="Assets\Picto\filmThumb-%2814%29.jpg" />
+    <Content Include="Assets\Picto\filmThumb-%2815%29.jpg" />
+    <Content Include="Assets\Picto\filmThumb-%282%29.jpg" />
+    <Content Include="Assets\Picto\filmThumb-%283%29.jpg" />
+    <Content Include="Assets\Picto\filmThumb-%284%29.jpg" />
+    <Content Include="Assets\Picto\filmThumb-%285%29.jpg" />
+    <Content Include="Assets\Picto\filmThumb-%286%29.jpg" />
+    <Content Include="Assets\Picto\filmThumb-%287%29.jpg" />
+    <Content Include="Assets\Picto\filmThumb-%288%29.jpg" />
+    <Content Include="Assets\Picto\filmThumb-%289%29.jpg" />
+    <Content Include="Assets\Picto\logo_overlay_light.png" />
+    <Content Include="Assets\Picto\logo_overlay_medium.png" />
+    <Content Include="Assets\Picto\logo_overlay_white.png" />
+    <Content Include="Assets\Picto\perso-%281%29.jpg" />
+    <Content Include="Assets\Picto\perso-%2810%29.jpg" />
+    <Content Include="Assets\Picto\perso-%2811%29.jpg" />
+    <Content Include="Assets\Picto\perso-%2812%29.jpg" />
+    <Content Include="Assets\Picto\perso-%2813%29.jpg" />
+    <Content Include="Assets\Picto\perso-%2814%29.jpg" />
+    <Content Include="Assets\Picto\perso-%2815%29.jpg" />
+    <Content Include="Assets\Picto\perso-%282%29.jpg" />
+    <Content Include="Assets\Picto\perso-%283%29.jpg" />
+    <Content Include="Assets\Picto\perso-%284%29.jpg" />
+    <Content Include="Assets\Picto\perso-%285%29.jpg" />
+    <Content Include="Assets\Picto\perso-%286%29.jpg" />
+    <Content Include="Assets\Picto\perso-%287%29.jpg" />
+    <Content Include="Assets\Picto\perso-%288%29.jpg" />
+    <Content Include="Assets\Picto\perso-%289%29.jpg" />
+    <Content Include="Assets\Picto\picto-right.png" />
+    <Content Include="Assets\Picto\picto_bobbafet.png" />
+    <Content Include="Assets\Picto\picto_clap.png" />
+    <Content Include="Assets\Picto\picto_cliche_overlay.png" />
+    <Content Include="Assets\Picto\picto_left.png" />
+    <Content Include="Assets\Picto\picto_loupe.png" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+    <Content Include="Assets\Fonts\CronosPro-Bold.otf" />
+    <Content Include="Assets\Fonts\CronosPro-Regular.otf" />
+    <Content Include="Assets\Fonts\CronosPro-Semibold.otf" />
+    <Content Include="Assets\Fonts\DroidSans.ttf" />
+    <Content Include="Assets\Fonts\seguisb.ttf" />
+    <None Include="Cliche.Fluent_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

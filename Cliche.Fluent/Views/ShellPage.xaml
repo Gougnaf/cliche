@@ -1,0 +1,150 @@
+﻿<Page
+    x:Class="Cliche.Fluent.Views.ShellPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:Cliche.Fluent.Views"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="NavigationMenuItemDataTemplate" x:DataType="local:ShellNavigationItem">
+            <Grid Width="170" Height="160"
+                  x:Name="RootGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Image
+                    Source="{x:Bind Icon}"
+                    Margin="12 34 12 12"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"/>
+                <TextBlock
+                        Grid.Row="1"
+                        Margin="0,10,0,26"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="{x:Bind SelectedForeground, Mode=OneWay}"
+                        Text="{x:Bind Label}"
+                        Style="{StaticResource BodyTextBlockStyle}"
+                    FontSize="14"
+                    FontWeight="SemiBold"
+                        TextTrimming="None" />
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid
+        Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
+        <SplitView
+            DisplayMode="Inline"
+            IsPaneOpen="True"
+            OpenPaneLength="170"
+            PaneBackground="{StaticResource PaneBackgoundBrush}">
+            <SplitView.Pane>
+                <Grid>
+                    <StackPanel>
+                        <Grid>
+                            <Grid
+                                Padding="0 25 0 50"
+                                x:Name="RootGrid">
+                                <Image
+                                    Width="170" Height="170"
+                                    Source="ms-appx:///Assets/Picto/picto_cliche_overlay.png"/>
+                            </Grid>
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="PointerOver">
+                                        <VisualState.Setters>
+                                            <Setter Target="RootGrid.(RevealBrush.State)" Value="PointerOver" />
+                                            <Setter Target="RootGrid.Background" Value="{ThemeResource ButtonRevealBackgroundPointerOver}" />
+                                            <Setter Target="ContentPresenter.BorderBrush" Value="Transparent" />
+                                            <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource ButtonForegroundPointerOver}" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <VisualState.Setters>
+                                            <Setter Target="RootGrid.(RevealBrushHelper.State)" Value="Pressed" />
+                                            <Setter Target="RootGrid.Background" Value="{ThemeResource ButtonRevealBackgroundPressed}"/>
+                                            <Setter Target="ContentPresenter.BorderBrush" Value="{ThemeResource ButtonRevealBorderBrushPressed}"/>
+                                            <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource ButtonForegroundPressed}"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Grid>
+                        <ListView
+                            Padding="0"
+                            Margin="0 4"
+                            ItemTemplate="{StaticResource NavigationMenuItemDataTemplate}"
+                            ItemsSource="{x:Bind PrimaryItems}"
+                            SelectionMode="Single"
+                            IsItemClickEnabled="True"
+                            ItemClick="ItemClicked">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Padding" Value="0"/>
+                                    <Setter Property="Margin" Value="0"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </StackPanel>
+                </Grid>                
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid>
+                    <Frame x:Name="shellFrame" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
+        <!--<controls:HamburgerMenu
+                x:Name="NavigationMenu"
+                DisplayMode="{x:Bind DisplayMode, Mode=OneWay}"
+                IsPaneOpen="{x:Bind IsPaneOpen, Mode=TwoWay}"
+                ItemTemplate="{StaticResource NavigationMenuItemDataTemplate}"
+                ItemsSource="{x:Bind PrimaryItems}"
+                OptionsItemTemplate="{StaticResource NavigationMenuItemDataTemplate}"
+                OptionsItemsSource="{x:Bind SecondaryItems}"
+                ItemClick="ItemClicked"
+                OpenPaneLength="114"
+                CompactPaneLength="114"
+                OptionsItemClick="ItemClicked"
+                HamburgerWidth="114"
+                HamburgerHeight="114"
+                PaneBackground="Transparent"
+                PaneForeground="{ThemeResource SystemControlForegroundBaseHighBrush}"
+                >--><!--PaneBackground="{ThemeResource SystemControlBackgroundAltHighBrush}"--><!--
+            <Grid>
+                <Frame x:Name="shellFrame"/>
+            </Grid>
+            --><!--  Adaptive triggers  --><!--
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="WindowStates" CurrentStateChanged="WindowStates_CurrentStateChanged">
+                    <VisualState x:Name="PanoramicState">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="1024"/>
+                        </VisualState.StateTriggers>
+                    </VisualState>
+                    <VisualState x:Name="WideState">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="640"/>
+                        </VisualState.StateTriggers>
+                    </VisualState>
+                    <VisualState x:Name="NarrowState">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="0"/>
+                        </VisualState.StateTriggers>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </controls:HamburgerMenu>-->
+    </Grid>
+</Page>
