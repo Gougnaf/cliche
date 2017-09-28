@@ -91,14 +91,12 @@ namespace Cliche.Fluent.Views
         {
             _primaryItems.Clear();
             _secondaryItems.Clear();
-
-            // TODO WTS: Change the symbols for each item as appropriate for your app
-            // More on Segoe UI Symbol icons: https://docs.microsoft.com/windows/uwp/style/segoe-ui-symbol-font
-            // Or to use an IconElement instead of a Symbol see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/projectTypes/navigationpane.md
-            // Edit String/en-US/Resources.resw: Add a menu item title for each page
+            
             _primaryItems.Add(ShellNavigationItem.FromType<MoviesPagePage>("Shell_MoviesPage".GetLocalized(), "ms-appx:///Assets/Picto/picto_clap.png"));
             _primaryItems.Add(ShellNavigationItem.FromType<CharactersPagePage>("Shell_CharactersPage".GetLocalized(), "ms-appx:///Assets/Picto/picto_bobbafet.png"));
-            _primaryItems.Add(ShellNavigationItem.FromType<MoviePagePage>("Shell_MoviePage".GetLocalized(), " "));
+            _primaryItems.Add(ShellNavigationItem.FromType<MoviePagePage>("Shell_MoviePage".GetLocalized(), "ms-appx:///Assets/Picto/picto_loupe.png"));
+
+            ChangeSelected(_lastSelectedItem, _primaryItems.First());
         }
 
         private void Frame_Navigated(object sender, NavigationEventArgs e)

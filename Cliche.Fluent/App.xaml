@@ -9,7 +9,8 @@
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Default">
-                    <Color x:Key="SystemAccentColor">#8fffd160</Color>
+                    <Color x:Key="SystemAccentColor">#ffd160</Color>
+                    <!--<Color x:Key="SystemAccentColor">#8fffd160</Color>-->
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
             <ResourceDictionary.MergedDictionaries>

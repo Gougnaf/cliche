@@ -5,11 +5,22 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    Loaded="CharactersPageDetailPage_OnLoaded"
     mc:Ignorable="d">
 
     <Grid>
         <Grid
             x:Name="BackgroundArea">
+            <Grid.Transitions>
+                <TransitionCollection>
+                    <!-- This transition just uses the default behavior which is to
+                 have the button animate into view from the right. You can
+                 make it start from anywhere on the right by using the
+                 FromHorizontalOffset property. If you'd rather see a vertical
+                 animation, use the FromVerticalOffset property. -->
+                    <EntranceThemeTransition FromVerticalOffset="-430" />
+                </TransitionCollection>
+            </Grid.Transitions>
             <Grid.RowDefinitions>
                 <RowDefinition x:Name="Header" Height="430"/>
                 <RowDefinition Height="*"/>
@@ -21,7 +32,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"/>
             <Grid
-                Height="432"
+                Height="430"
                 VerticalAlignment="Top"
                 Grid.Row="0"
                 Background="{StaticResource MyAcrylicBrush}">
@@ -38,6 +49,16 @@
             <Grid
                 Padding="0,0,0,0"
                 Grid.Row="1">
+                <Grid.Transitions>
+                    <TransitionCollection>
+                        <!-- This transition just uses the default behavior which is to
+                 have the button animate into view from the right. You can
+                 make it start from anywhere on the right by using the
+                 FromHorizontalOffset property. If you'd rather see a vertical
+                 animation, use the FromVerticalOffset property. -->
+                        <EntranceThemeTransition FromHorizontalOffset="300" />
+                    </TransitionCollection>
+                </Grid.Transitions>
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"

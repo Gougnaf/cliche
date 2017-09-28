@@ -159,8 +159,7 @@
             </Setter>
         </Style>
         <DataTemplate x:Key="MasterListViewItemTemplate" x:DataType="model:Character">
-            <Grid Margin="30,24,30,2" x:Name="RootGrid"
-                  Tapped="RootGrid_OnTapped">
+            <Grid Margin="30,24,30,2" x:Name="RootGrid">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="274" />
                     <RowDefinition Height="Auto" />
@@ -170,6 +169,7 @@
                 <Grid 
                     Width="274"
                     Height="276">
+                    <!--TODO Connect Animation forward source (xaml 1/2)-->
                     <Image
                         x:Name="CharacterThumbImage"
                         Source="{x:Bind Thumbnail}"
@@ -212,13 +212,16 @@
                 Margin="0 40 0 0">
                 <PivotItem Header="LE HEROS">
                     <GridView
+                        x:Name="HerosGridView"
                         ItemsSource="{x:Bind HeroItems, Mode=OneWay}"
                         ItemContainerTransitions="{x:Null}"
                         ItemTemplate="{StaticResource MasterListViewItemTemplate}"
                         IsItemClickEnabled="True"
                         Margin="0 50 0 0"
-                        SelectionMode="None">
-                        <!--ItemClick="MasterListView_ItemClick">-->
+                        SelectionMode="None"
+                        Loaded="HerosGridView_OnLoaded"
+                        ItemClick="MasterListView_ItemClick">
+                        <!--TODO Connect Animation forward source (xaml 2/2)-->
                         <GridView.ItemContainerStyle>
                             <Style TargetType="GridViewItem">
                                 <Setter Property="Padding" Value="0"/>
@@ -228,7 +231,6 @@
                 </PivotItem>
                 <PivotItem Header="LE MENTOR">
                     <GridView
-                        x:Name="HerosGridView"
                         ItemsSource="{x:Bind MentorItems, Mode=OneWay}"
                         ItemContainerTransitions="{x:Null}"
                         ItemTemplate="{StaticResource MasterListViewItemTemplate}"

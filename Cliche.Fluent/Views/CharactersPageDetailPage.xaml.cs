@@ -31,12 +31,27 @@ namespace Cliche.Fluent.Views
         {
             Item = e.Parameter as Character;
             base.OnNavigatedTo(e);
+        }
 
+        private void CharactersPageDetailPage_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            //TODO Connect Animation forward destination
             ConnectedAnimation imageAnimation =
                 ConnectedAnimationService.GetForCurrentView().GetAnimation("characterImage");
             if (imageAnimation != null)
             {
                 imageAnimation.TryStart(CharacterImage);
+            }
+        }
+
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            base.OnNavigatingFrom(e);
+
+            //TODO Connect Animation backward source
+            if (e.SourcePageType == typeof(CharactersPagePage))
+            {
+                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("characterImage", CharacterImage);
             }
         }
 

@@ -2,13 +2,16 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-
+using Windows.UI.Composition;
+using Windows.UI.Xaml;
 using Cliche.Fluent.Models;
 using Cliche.Fluent.Services;
 
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
@@ -17,6 +20,8 @@ namespace Cliche.Fluent.Views
 {
     public sealed partial class CharactersPagePage : Page, INotifyPropertyChanged
     {
+        Compositor _compositor;
+
         private Character _selected;
 
         public Character Selected
@@ -32,10 +37,21 @@ namespace Cliche.Fluent.Views
 
         public CharactersPagePage()
         {
+            NavigationCacheMode = NavigationCacheMode.Required;
+
+            //TODO Connect Animation custom settings
+            _compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
+            var connectedAnimationService = ConnectedAnimationService.GetForCurrentView();
+            connectedAnimationService.DefaultDuration = TimeSpan.FromSeconds(1.0);
+            connectedAnimationService.DefaultEasingFunction = _compositor.CreateCubicBezierEasingFunction(
+                new Vector2(0.41f, 0.52f),
+                new Vector2(0.00f, 0.94f)
+            );
+
             InitializeComponent();
         }
 
-        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             await LoadDataAsync();
         }
@@ -71,16 +87,17 @@ namespace Cliche.Fluent.Views
 
         private void MasterListView_ItemClick(object sender, ItemClickEventArgs e)
         {
+            //TODO Connect Animation forward source (code)
             var item = e?.ClickedItem as Character;
             if (item != null)
             {
-
+                Selected = item;
+                HerosGridView.PrepareConnectedAnimation("characterImage", item, "CharacterThumbImage");
                 NavigationService.Navigate<Views.CharactersPageDetailPage>(item);
+                
+                //TODO Navigation transition request
+                //NavigationService.Navigate<Views.CharactersPageDetailPage>(item, new DrillInNavigationTransitionInfo());
             }
-        }
-        void PrepareAnimationWithItem(Character item)
-        {
-            HerosGridView.PrepareConnectedAnimation("characterImage", item, "CharacterThumbImage");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -98,15 +115,22 @@ namespace Cliche.Fluent.Views
 
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        private void RootGrid_OnTapped(object sender, TappedRoutedEventArgs e)
+        private async void HerosGridView_OnLoaded(object sender, RoutedEventArgs e)
         {
-            var image = e?.OriginalSource as Image;
-            var item = image?.DataContext as Character;
+            if (Selected == null) return;
+
+            //TODO Connected Animation backward destination
+            Character item = HeroItems.First(h => h.CharacterId == Selected.CharacterId); // Get persisted item
             if (item != null)
             {
-                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("characterImage", image);
-                //ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("characterName", image);
-                NavigationService.Navigate<Views.CharactersPageDetailPage>(item);
+                HerosGridView.ScrollIntoView(item);
+                ConnectedAnimation animation =
+                    ConnectedAnimationService.GetForCurrentView().GetAnimation("characterImage");
+                if (animation != null)
+                {
+                    await HerosGridView.TryStartConnectedAnimationAsync(
+                        animation, item, "CharacterThumbImage");
+                }
             }
         }
     }

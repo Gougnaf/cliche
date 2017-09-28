@@ -5,12 +5,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="using:Cliche.Fluent.Views"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="NavigationMenuItemDataTemplate" x:DataType="local:ShellNavigationItem">
             <Grid Width="170" Height="160"
-                  x:Name="RootGrid">
+                  x:Name="RootGrid"
+                  Background="{StaticResource PaneBackgoundBrush}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
@@ -53,27 +53,6 @@
                                     Width="170" Height="170"
                                     Source="ms-appx:///Assets/Picto/picto_cliche_overlay.png"/>
                             </Grid>
-
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="PointerOver">
-                                        <VisualState.Setters>
-                                            <Setter Target="RootGrid.(RevealBrush.State)" Value="PointerOver" />
-                                            <Setter Target="RootGrid.Background" Value="{ThemeResource ButtonRevealBackgroundPointerOver}" />
-                                            <Setter Target="ContentPresenter.BorderBrush" Value="Transparent" />
-                                            <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource ButtonForegroundPointerOver}" />
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                    <VisualState x:Name="Pressed">
-                                        <VisualState.Setters>
-                                            <Setter Target="RootGrid.(RevealBrushHelper.State)" Value="Pressed" />
-                                            <Setter Target="RootGrid.Background" Value="{ThemeResource ButtonRevealBackgroundPressed}"/>
-                                            <Setter Target="ContentPresenter.BorderBrush" Value="{ThemeResource ButtonRevealBorderBrushPressed}"/>
-                                            <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource ButtonForegroundPressed}"/>
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
                         </Grid>
                         <ListView
                             Padding="0"
@@ -105,46 +84,5 @@
                 </Grid>
             </SplitView.Content>
         </SplitView>
-        <!--<controls:HamburgerMenu
-                x:Name="NavigationMenu"
-                DisplayMode="{x:Bind DisplayMode, Mode=OneWay}"
-                IsPaneOpen="{x:Bind IsPaneOpen, Mode=TwoWay}"
-                ItemTemplate="{StaticResource NavigationMenuItemDataTemplate}"
-                ItemsSource="{x:Bind PrimaryItems}"
-                OptionsItemTemplate="{StaticResource NavigationMenuItemDataTemplate}"
-                OptionsItemsSource="{x:Bind SecondaryItems}"
-                ItemClick="ItemClicked"
-                OpenPaneLength="114"
-                CompactPaneLength="114"
-                OptionsItemClick="ItemClicked"
-                HamburgerWidth="114"
-                HamburgerHeight="114"
-                PaneBackground="Transparent"
-                PaneForeground="{ThemeResource SystemControlForegroundBaseHighBrush}"
-                >--><!--PaneBackground="{ThemeResource SystemControlBackgroundAltHighBrush}"--><!--
-            <Grid>
-                <Frame x:Name="shellFrame"/>
-            </Grid>
-            --><!--  Adaptive triggers  --><!--
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="WindowStates" CurrentStateChanged="WindowStates_CurrentStateChanged">
-                    <VisualState x:Name="PanoramicState">
-                        <VisualState.StateTriggers>
-                            <AdaptiveTrigger MinWindowWidth="1024"/>
-                        </VisualState.StateTriggers>
-                    </VisualState>
-                    <VisualState x:Name="WideState">
-                        <VisualState.StateTriggers>
-                            <AdaptiveTrigger MinWindowWidth="640"/>
-                        </VisualState.StateTriggers>
-                    </VisualState>
-                    <VisualState x:Name="NarrowState">
-                        <VisualState.StateTriggers>
-                            <AdaptiveTrigger MinWindowWidth="0"/>
-                        </VisualState.StateTriggers>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-        </controls:HamburgerMenu>-->
     </Grid>
 </Page>
