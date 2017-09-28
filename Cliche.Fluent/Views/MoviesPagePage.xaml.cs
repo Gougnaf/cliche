@@ -52,7 +52,12 @@ namespace Cliche.Fluent.Views
             var item = e?.ClickedItem as Movie;
             if (item != null)
             {
+                Selected = item;
+                MasterListView.PrepareConnectedAnimation("movieImage", item, "MovieThumbImage");
                 NavigationService.Navigate<Views.MoviesPageDetailPage>(item);
+
+                //TODO Navigation transition request
+                //NavigationService.Navigate<Views.CharactersPageDetailPage>(item, new DrillInNavigationTransitionInfo());
             }
         }
 

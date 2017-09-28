@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Loaded="MoviePagePage_OnLoaded"
     mc:Ignorable="d">
 
     <Grid>
@@ -12,7 +13,17 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <Image
+            x:Name="BackgroundImage"
+            Source="ms-appx:///Assets/Images/movie_LordOfRing_nb.jpg"
+            Stretch="UniformToFill"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
+
         <TextBlock
+            Grid.Row="0"
             x:Name="TitlePage"
             x:Uid="MoviePage_Pivot"
             Text="Navigation Item 1"
@@ -22,41 +33,23 @@
         <Pivot Grid.Row="1">
             <PivotItem x:Uid="MoviePage_PivotItem1">
                 <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-                    <!--
-                    The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                    Place your content here.
-                    -->
+                    
+                    <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
+                    Place your content here.-->
+                    
 
                 </Grid>
             </PivotItem>
 
             <PivotItem x:Uid="MoviePage_PivotItem2">
                 <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-                    <!--
-                    The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                    Place your content here.
-                    -->
+                    
+                    <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
+                    Place your content here.-->
+                    
 
                 </Grid>
             </PivotItem>
         </Pivot>
-        <!--  Adaptive triggers  -->
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="WindowStates">
-                <VisualState x:Name="WideState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="640"/>
-                    </VisualState.StateTriggers>
-                </VisualState>
-                <VisualState x:Name="NarrowState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0"/>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="TitlePage.Margin" Value="48,0,12,7"/>
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>

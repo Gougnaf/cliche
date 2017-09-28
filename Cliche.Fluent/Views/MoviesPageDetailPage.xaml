@@ -7,15 +7,54 @@
     xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
     xmlns:i="using:Microsoft.Xaml.Interactivity"
     xmlns:views="using:Cliche.Fluent.Views"
+    Loaded="MoviesPageDetailPage_OnLoaded"
     mc:Ignorable="d">
 
     <Grid
         x:Name="ContentArea"
         Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <views:MoviesPageDetailControl
-            Margin="{StaticResource MediumLeftRightMargin}"
-            MasterMenuItem="{x:Bind Item}"/>
+        <Grid Grid.Row="0"
+              Grid.RowSpan="2"
+              x:Name="BackgroundImage">
+            <Image
+                Stretch="UniformToFill"
+                Source="{x:Bind Item.Thumbnail, Mode=OneWay}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+            <Canvas
+                x:Name="GlassHost" />
+        </Grid>
+
+        <TextBlock
+            x:Name="TitlePage"
+            Text="{x:Bind Item.MovieId, Mode=OneWay}"
+            Style="{StaticResource PageTitleStyle}" />
+
+        <ScrollViewer
+            Grid.Row="1"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            ScrollViewer.VerticalScrollMode="Auto">
+
+            <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your detail content.-->
+            <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+
+                <!--Replate this StackPanel with your detail content.-->
+                <StackPanel Orientation="Vertical" Margin="{StaticResource MediumLeftTopRightBottomMargin}">
+                    <TextBlock Text="Order Date" Style="{StaticResource CaptionTextBlockStyle}" />
+                    <TextBlock Text="{x:Bind Item.Name, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />
+                    <TextBlock Text="Company" Style="{StaticResource CaptionTextBlockStyle}" />
+                    <TextBlock Text="{x:Bind Item.Tags, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />
+                    <TextBlock Text="Ship to" Style="{StaticResource CaptionTextBlockStyle}" />
+                    <TextBlock Text="{x:Bind Item.Description, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
 
         <!--  Adaptive triggers  -->
         <VisualStateManager.VisualStateGroups>

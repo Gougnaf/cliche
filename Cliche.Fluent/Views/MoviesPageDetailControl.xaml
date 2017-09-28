@@ -13,6 +13,15 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <Image
+            x:Name="BackgroundImage"
+            Source="{x:Bind MasterMenuItem.Thumbnail, Mode=OneWay}"
+            Stretch="UniformToFill"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
+
         <TextBlock
             x:Name="TitlePage"
             Text="{x:Bind MasterMenuItem.MovieId, Mode=OneWay}"
@@ -35,7 +44,6 @@
                     <TextBlock Text="{x:Bind MasterMenuItem.Tags, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />
                     <TextBlock Text="Ship to" Style="{StaticResource CaptionTextBlockStyle}" />
                     <TextBlock Text="{x:Bind MasterMenuItem.Description, Mode=OneWay}" Style="{StaticResource BodyTextStyle}" />
-                    <Image Source="{x:Bind MasterMenuItem.Thumbnail, Mode=OneWay}" />
                 </StackPanel>
             </Grid>
         </ScrollViewer>
