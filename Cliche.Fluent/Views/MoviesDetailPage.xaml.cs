@@ -15,7 +15,7 @@ using Microsoft.Graphics.Canvas.Effects;
 
 namespace Cliche.Fluent.Views
 {
-    public sealed partial class MoviesPageDetailPage : Page, INotifyPropertyChanged
+    public sealed partial class MoviesDetailPage : Page, INotifyPropertyChanged
     {
         private Movie _item;
 
@@ -25,7 +25,7 @@ namespace Cliche.Fluent.Views
             set { Set(ref _item, value); }
         }
 
-        public MoviesPageDetailPage()
+        public MoviesDetailPage()
         {
             InitializeComponent();
             InitializeFrostedGlass(GlassHost);

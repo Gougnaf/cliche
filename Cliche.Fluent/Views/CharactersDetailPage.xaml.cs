@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Cliche.Fluent.Views
 {
-    public sealed partial class CharactersPageDetailPage : Page, INotifyPropertyChanged
+    public sealed partial class CharactersDetailPage : Page, INotifyPropertyChanged
     {
         private Character _item;
 
@@ -22,7 +22,7 @@ namespace Cliche.Fluent.Views
             set { Set(ref _item, value); }
         }
 
-        public CharactersPageDetailPage()
+        public CharactersDetailPage()
         {
             InitializeComponent();
         }
@@ -36,11 +36,16 @@ namespace Cliche.Fluent.Views
         private void CharactersPageDetailPage_OnLoaded(object sender, RoutedEventArgs e)
         {
             //TODO Connect Animation forward destination
-            ConnectedAnimation imageAnimation =
-                ConnectedAnimationService.GetForCurrentView().GetAnimation("characterImage");
+            ConnectedAnimation imageAnimation = ConnectedAnimationService.GetForCurrentView().GetAnimation("characterImage");            
             if (imageAnimation != null)
             {
                 imageAnimation.TryStart(CharacterImage);
+            }
+
+            ConnectedAnimation nameAnimation = ConnectedAnimationService.GetForCurrentView().GetAnimation("characterName");
+            if (nameAnimation != null)
+            {
+                nameAnimation.TryStart(CharacterName);
             }
         }
 
@@ -49,9 +54,13 @@ namespace Cliche.Fluent.Views
             base.OnNavigatingFrom(e);
 
             //TODO Connect Animation backward source
-            if (e.SourcePageType == typeof(CharactersPagePage))
+            if (e.SourcePageType == typeof(CharactersPage))
             {
                 ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("characterImage", CharacterImage);
+            }
+            if (e.SourcePageType == typeof(CharactersPage))
+            {
+                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("characterName", CharacterName);
             }
         }
 

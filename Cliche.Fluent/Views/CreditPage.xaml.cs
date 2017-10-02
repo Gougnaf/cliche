@@ -7,9 +7,9 @@ using Windows.UI.Xaml.Media.Animation;
 
 namespace Cliche.Fluent.Views
 {
-    public sealed partial class MoviePagePage : Page, INotifyPropertyChanged
+    public sealed partial class CreditPage : Page, INotifyPropertyChanged
     {
-        public MoviePagePage()
+        public CreditPage()
         {
             InitializeComponent();
         }

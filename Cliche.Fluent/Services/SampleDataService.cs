@@ -82,17 +82,18 @@ namespace Cliche.Fluent.Services
                     Description = LoremIpsum,
                     DejaVuRatio = 82,
                     Tags = new List<string>() {},
-                    Thumbnail="ms-appx:///Assets/Picto/perso-(6).jpg",
+                    Thumbnail="ms-appx:///Assets/Picto/perso-(10).jpg",
                     Category = Character.Type.Hero,
                     Movie="Harry Potter"
                 },
                 new Character
                 {
+                    CharacterId = 6,
                     Name = "JAKE SCULLY",
                     Description = LoremIpsum,
                     DejaVuRatio = 82,
                     Tags = new List<string>() {},
-                    Thumbnail="ms-appx:///Assets/Picto/perso-(7).jpg",
+                    Thumbnail="ms-appx:///Assets/Picto/perso-(9).jpg",
                     Category = Character.Type.Hero,
                     Movie="Avatar"
                 },
@@ -114,7 +115,7 @@ namespace Cliche.Fluent.Services
                     Description = LoremIpsum,
                     DejaVuRatio = 82,
                     Tags = new List<string>() {},
-                    Thumbnail="ms-appx:///Assets/Picto/perso-(9).jpg",
+                    Thumbnail="ms-appx:///Assets/Picto/perso-(7).jpg",
                     Category = Character.Type.Hero,
                     Movie="Terminator"
                 },
@@ -125,7 +126,7 @@ namespace Cliche.Fluent.Services
                     Description = LoremIpsum,
                     DejaVuRatio = 82,
                     Tags = new List<string>() {},
-                    Thumbnail="ms-appx:///Assets/Picto/perso-(10).jpg",
+                    Thumbnail="ms-appx:///Assets/Picto/perso-(6).jpg",
                     Category = Character.Type.Hero,
                     Movie="Highlander"
                 },

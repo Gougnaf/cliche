@@ -5,7 +5,13 @@
     <SolidColorBrush x:Key="ThemeControlForegroundBaseHighBrush" Color="{ThemeResource SystemBaseHighColor}" />
     <SolidColorBrush x:Key="MainColorBrush" Color="#ffd160"/>
     <SolidColorBrush x:Key="SecondaryColorBrush" Color="#262626"/>
-    <SolidColorBrush x:Key="PaneBackgoundBrush" Color="#111111"/>
+    <!--<SolidColorBrush x:Key="PaneBackgoundBrush" Color="#111111"/>-->
+    <AcrylicBrush x:Key="PaneBackgoundBrush"
+        BackgroundSource="HostBackdrop"
+        TintColor="{StaticResource AcrylicColor}"
+        TintOpacity="0.0"
+        FallbackColor="{StaticResource AcrylicColor}"/>
+
     <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="#262626"/>
     <SolidColorBrush x:Key="SystemControlPageBackgroundChromeLowBrush" Color="Transparent"/>
 

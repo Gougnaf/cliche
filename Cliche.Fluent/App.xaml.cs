@@ -56,7 +56,7 @@ namespace Cliche.Fluent
 
         private ActivationService CreateActivationService()
         {
-            return new ActivationService(this, typeof(Views.MoviesPagePage), new Views.ShellPage());
+            return new ActivationService(this, typeof(Views.MoviesPage), new Views.ShellPage());
         }
     }
 }

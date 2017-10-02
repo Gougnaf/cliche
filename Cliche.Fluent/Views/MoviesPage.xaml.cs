@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
@@ -13,7 +11,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Cliche.Fluent.Views
 {
-    public sealed partial class MoviesPagePage : Page, INotifyPropertyChanged
+    public sealed partial class MoviesPage : Page, INotifyPropertyChanged
     {
         private Movie _selected;
 
@@ -25,7 +23,7 @@ namespace Cliche.Fluent.Views
 
         public ObservableCollection<Movie> SampleItems { get; private set; } = new ObservableCollection<Movie>();
 
-        public MoviesPagePage()
+        public MoviesPage()
         {
             InitializeComponent();
         }
@@ -54,7 +52,7 @@ namespace Cliche.Fluent.Views
             {
                 Selected = item;
                 MasterListView.PrepareConnectedAnimation("movieImage", item, "MovieThumbImage");
-                NavigationService.Navigate<Views.MoviesPageDetailPage>(item);
+                NavigationService.Navigate<Views.MoviesDetailPage>(item);
 
                 //TODO Navigation transition request
                 //NavigationService.Navigate<Views.CharactersPageDetailPage>(item, new DrillInNavigationTransitionInfo());

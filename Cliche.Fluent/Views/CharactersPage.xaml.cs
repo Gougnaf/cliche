@@ -18,7 +18,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Cliche.Fluent.Views
 {
-    public sealed partial class CharactersPagePage : Page, INotifyPropertyChanged
+    public sealed partial class CharactersPage : Page, INotifyPropertyChanged
     {
         Compositor _compositor;
 
@@ -35,7 +35,7 @@ namespace Cliche.Fluent.Views
         public ObservableCollection<Character> SidekickItems { get; private set; } = new ObservableCollection<Character>();
         public ObservableCollection<Character> VilainItems { get; private set; } = new ObservableCollection<Character>();
 
-        public CharactersPagePage()
+        public CharactersPage()
         {
             NavigationCacheMode = NavigationCacheMode.Required;
 
@@ -93,7 +93,8 @@ namespace Cliche.Fluent.Views
             {
                 Selected = item;
                 HerosGridView.PrepareConnectedAnimation("characterImage", item, "CharacterThumbImage");
-                NavigationService.Navigate<Views.CharactersPageDetailPage>(item);
+                HerosGridView.PrepareConnectedAnimation("characterName", item, "CharacterName"); 
+                NavigationService.Navigate<Views.CharactersDetailPage>(item);
                 
                 //TODO Navigation transition request
                 //NavigationService.Navigate<Views.CharactersPageDetailPage>(item, new DrillInNavigationTransitionInfo());
@@ -124,12 +125,17 @@ namespace Cliche.Fluent.Views
             if (item != null)
             {
                 HerosGridView.ScrollIntoView(item);
-                ConnectedAnimation animation =
-                    ConnectedAnimationService.GetForCurrentView().GetAnimation("characterImage");
-                if (animation != null)
+                ConnectedAnimation imageAnimation = ConnectedAnimationService.GetForCurrentView().GetAnimation("characterImage");
+                if (imageAnimation != null)
                 {
                     await HerosGridView.TryStartConnectedAnimationAsync(
-                        animation, item, "CharacterThumbImage");
+                        imageAnimation, item, "CharacterThumbImage");
+                }
+                ConnectedAnimation nameAnimation = ConnectedAnimationService.GetForCurrentView().GetAnimation("characterName");
+                if (nameAnimation != null)
+                {
+                    await HerosGridView.TryStartConnectedAnimationAsync(
+                        nameAnimation, item, "CharacterName");
                 }
             }
         }

@@ -11,8 +11,8 @@
     <AssemblyName>Cliche.Fluent</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16278.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.16278.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16288.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16288.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -114,26 +114,20 @@
     <Compile Include="Activation\DefaultLaunchActivationHandler.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\SampleDataService.cs" />
-    <Compile Include="Views\CharactersPageDetailControl.xaml.cs">
-      <DependentUpon>CharactersPageDetailControl.xaml</DependentUpon>
+    <Compile Include="Views\CharactersDetailPage.xaml.cs">
+      <DependentUpon>CharactersDetailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharactersPageDetailPage.xaml.cs">
-      <DependentUpon>CharactersPageDetailPage.xaml</DependentUpon>
+    <Compile Include="Views\CharactersPage.xaml.cs">
+      <DependentUpon>CharactersPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharactersPagePage.xaml.cs">
-      <DependentUpon>CharactersPagePage.xaml</DependentUpon>
+    <Compile Include="Views\MoviesPage.xaml.cs">
+      <DependentUpon>MoviesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MoviePagePage.xaml.cs">
-      <DependentUpon>MoviePagePage.xaml</DependentUpon>
+    <Compile Include="Views\MoviesDetailPage.xaml.cs">
+      <DependentUpon>MoviesDetailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MoviesPageDetailControl.xaml.cs">
-      <DependentUpon>MoviesPageDetailControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MoviesPageDetailPage.xaml.cs">
-      <DependentUpon>MoviesPageDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MoviesPagePage.xaml.cs">
-      <DependentUpon>MoviesPagePage.xaml</DependentUpon>
+    <Compile Include="Views\CreditPage.xaml.cs">
+      <DependentUpon>CreditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellNavigationItem.cs" />
     <Compile Include="Views\ShellPage.xaml.cs">
@@ -167,31 +161,23 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
-    <Page Include="Views\CharactersPageDetailControl.xaml">
+    <Page Include="Views\CharactersDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\CharactersPageDetailPage.xaml">
+    <Page Include="Views\CharactersPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\CharactersPagePage.xaml">
+    <Page Include="Views\CreditPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\MoviePagePage.xaml">
+    <Page Include="Views\MoviesDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\MoviesPageDetailControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\MoviesPageDetailPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\MoviesPagePage.xaml">
+    <Page Include="Views\MoviesPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

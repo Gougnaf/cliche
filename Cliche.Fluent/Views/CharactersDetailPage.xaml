@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Cliche.Fluent.Views.CharactersPageDetailPage"
+    x:Class="Cliche.Fluent.Views.CharactersDetailPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,40 +9,38 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Grid
-            x:Name="BackgroundArea">
-            <Grid.Transitions>
-                <TransitionCollection>
-                    <!-- This transition just uses the default behavior which is to
-                 have the button animate into view from the right. You can
-                 make it start from anywhere on the right by using the
-                 FromHorizontalOffset property. If you'd rather see a vertical
-                 animation, use the FromVerticalOffset property. -->
-                    <EntranceThemeTransition FromVerticalOffset="-430" />
-                </TransitionCollection>
-            </Grid.Transitions>
-            <Grid.RowDefinitions>
-                <RowDefinition x:Name="Header" Height="430"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Image
-                Source="ms-appx:///Assets/Images/movie_LordOfRing_nb.jpg"
-                Stretch="UniformToFill"
-                Grid.Row="0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"/>
-            <Grid
-                Height="430"
-                VerticalAlignment="Top"
-                Grid.Row="0"
-                Background="{StaticResource MyAcrylicBrush}">
-            </Grid>
+        <Grid>
+            <ParallaxView
+                Source="{x:Bind ContentArea}"
+                VerticalShift="40"
+                Grid.RowSpan="2"
+                x:Name="BackgroundArea"
+                VerticalAlignment="Top">
+                <Grid Height="430"
+                      VerticalAlignment="Top">
+                    <Image
+                        Source="ms-appx:///Assets/Images/movie_LordOfRing_nb.jpg"
+                        Stretch="UniformToFill"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"/>
+                    <Grid
+                        VerticalAlignment="Top"
+                        Height="430">
+                        <!--Background="{StaticResource MyAcrylicBrush}">-->
+                        <Grid.Background>
+                            <AcrylicBrush
+                                BackgroundSource="Backdrop"
+                                TintColor="{StaticResource AcrylicColor}"
+                                TintOpacity="0.5"
+                                FallbackColor="{StaticResource AcrylicColor}"/>
+                        </Grid.Background>
+                    </Grid>
+                </Grid>
+            </ParallaxView>
         </Grid>
-        <Grid
-            x:Name="ContentArea">
-
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition x:Name="TitleRow" Height="188"/>
+                <RowDefinition Height="188"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -58,16 +56,21 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Margin="46 0">
-                    <Image
-                        x:Name="CharacterImage"
-                        Width="316"
-                        Height="316"
-                        Margin="0 10"
-                        Stretch="UniformToFill"
-                        Source="{x:Bind Item.Thumbnail}"/>
+
+                    <!--TODO Connect Animation forward source (xaml 1/2)-->
+                    <Grid
+                            x:Name="CharacterImage"
+                            Margin="0 10"
+                            Width="316"
+                            Height="316">
+                        <Image
+                                    Source="{x:Bind Item.Thumbnail}"
+                                    Stretch="UniformToFill"/>
+                    </Grid>
                     <StackPanel Orientation="Vertical"
                                 Margin="32 0">
                         <TextBlock
+                            x:Name="CharacterName"
                             FontSize="52"
                             Margin="0 0"
                             FontWeight="Normal"
@@ -136,17 +139,17 @@
                     Margin="660 340 0 120"
                     HorizontalAlignment="Left"
                     Width="680"
+                    x:Name="ContentArea"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     ScrollViewer.VerticalScrollBarVisibility="Auto"
                     ScrollViewer.VerticalScrollMode="Auto">
                     <TextBlock Text="{x:Bind Item.Description}"
-                                   Padding="12 4"
-                                   TextWrapping="WrapWholeWords"
-                                   FontWeight="SemiBold"
-                                   FontSize="20"/>
+                                    Padding="12 4 20 4"
+                                    TextWrapping="WrapWholeWords"
+                                    FontWeight="SemiBold"
+                                    FontSize="20"/>
                 </ScrollViewer>
             </Grid>
-
         </Grid>
     </Grid>
 </Page>
