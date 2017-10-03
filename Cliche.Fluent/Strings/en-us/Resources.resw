@@ -129,11 +129,11 @@
     <value>MoviesPage</value>
     <comment>Page title for MoviesPage</comment>
   </data>
-  <data name="MoviePage_Pivot.Text" xml:space="preserve">  
+  <data name="MoviePage_Pivot.Text" xml:space="preserve">
     <value>MoviePage</value>
     <comment>Page title for MoviePage</comment>
   </data>
-  <data name="MoviePage_PivotItem1.Header" xml:space="preserve">  
+  <data name="MoviePage_PivotItem1.Header" xml:space="preserve">
     <value>Item 1</value>
     <comment>First Pivot item title for MoviePage</comment>
   </data>
@@ -146,15 +146,18 @@
     <comment>Navigation view item name for Main</comment>
   </data>
   <data name="Shell_CharactersPage" xml:space="preserve">
-    <value>CharactersPage</value>
+    <value>Characters</value>
     <comment>Navigation view item name for CharactersPage</comment>
   </data>
   <data name="Shell_MoviesPage" xml:space="preserve">
-    <value>MoviesPage</value>
+    <value>Movies</value>
     <comment>Navigation view item name for MoviesPage</comment>
   </data>
   <data name="Shell_MoviePage" xml:space="preserve">
     <value>MoviePage</value>
     <comment>Navigation view item name for MoviePage</comment>
+  </data>
+  <data name="Shell_CreditPage" xml:space="preserve">
+    <value>Credit</value>
   </data>
 </root>

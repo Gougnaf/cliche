@@ -10,31 +10,31 @@
 
     <Grid>
         <Grid>
-            <ParallaxView
-                Source="{x:Bind ContentArea}"
-                VerticalShift="40"
-                Grid.RowSpan="2"
-                x:Name="BackgroundArea"
-                VerticalAlignment="Top">
-                <Grid Height="430"
-                      VerticalAlignment="Top">
-                    <Image
-                        Source="ms-appx:///Assets/Images/movie_LordOfRing_nb.jpg"
-                        Stretch="UniformToFill"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"/>
-                    <Grid
-                        VerticalAlignment="Top"
-                        Height="430">
-                        <!--Background="{StaticResource MyAcrylicBrush}">-->
-                        <Grid.Background>
-                            <AcrylicBrush
-                                BackgroundSource="Backdrop"
-                                TintColor="{StaticResource AcrylicColor}"
-                                TintOpacity="0.5"
-                                FallbackColor="{StaticResource AcrylicColor}"/>
-                        </Grid.Background>
-                    </Grid>
+<ParallaxView
+    Source="{x:Bind ContentArea}"
+    VerticalShift="40"
+    Grid.RowSpan="2"
+    x:Name="BackgroundArea"
+    VerticalAlignment="Top">
+    <Grid Height="430"
+            VerticalAlignment="Top">
+            <Image
+            Source="ms-appx:///Assets/Images/movie_LordOfRing_nb.jpg"
+            Stretch="UniformToFill"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"/>
+<Grid
+    VerticalAlignment="Top"
+    Height="430">
+    <!--Background="{StaticResource MyAcrylicBrush}">-->
+    <Grid.Background>
+        <AcrylicBrush
+            BackgroundSource="Backdrop"
+            TintColor="{StaticResource AcrylicColor}"
+            TintOpacity="0.5"
+            FallbackColor="{StaticResource AcrylicColor}"/>
+    </Grid.Background>
+</Grid>
                 </Grid>
             </ParallaxView>
         </Grid>

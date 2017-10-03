@@ -15,6 +15,33 @@ namespace Cliche.Fluent.Services
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non nisl felis. Cras gravida turpis magna, et pharetra ligula viverra at. Sed nec orci justo. Quisque eu nisi convallis, vulputate enim sed, tincidunt dui. Vivamus ullamcorper ut felis vel viverra. Proin id tortor id ex dignissim facilisis vitae et orci. Mauris tempor massa eu egestas consequat. Pellentesque vitae finibus ligula. Vivamus et pellentesque neque. Nullam at arcu at enim vulputate elementum. Sed in nisl sodales, finibus purus sed, tristique purus. Sed non ullamcorper lectus.\r\nSed fermentum justo nec placerat eleifend.Donec ac quam tellus.Sed nisi nibh, dapibus vel ultricies et, tempus id ligula.Fusce elementum elit ipsum, eget ultricies sem ullamcorper ac.Nunc tempus fringilla facilisis. Vestibulum dolor arcu, finibus eu massa bibendum, faucibus sodales mauris.Fusce maximus, nisi ac porttitor rhoncus, est purus sodales ex, eget consequat libero ante ac nibh. Ut aliquam ultricies purus, ut cursus urna euismod id.Nullam pellentesque purus semper ante lacinia aliquet.Fusce eu posuere dolor. Nunc tincidunt mauris ac efficitur pharetra. Fusce elementum tincidunt nibh, eu facilisis eros.In hac habitasse platea dictumst.Sed non sapien venenatis eros dignissim tincidunt vel in nulla.\r\nUt eget justo felis. Mauris vulputate, odio vitae tempor suscipit, ipsum quam convallis nulla, id aliquam lorem ex sit amet nulla.Morbi risus velit, tincidunt in sagittis et, accumsan nec risus.Sed egestas ipsum sem. Integer consectetur augue eu semper posuere. Pellentesque sit amet iaculis libero.Integer sapien eros, sollicitudin at dui nec, aliquet vehicula ex.Proin auctor sed sapien nec congue. Phasellus venenatis est nec felis iaculis pulvinar."
             ;
 
+        private static IEnumerable<Author> Authors()
+        {
+            // The following is order summary data
+            var data = new ObservableCollection<Author>
+            {
+                new Author
+                {
+                    Name = "Benjamin LAUNAY",
+                    Description = "Designer UX",
+                    Thumbnail=$"ms-appx:///Assets/Images/benjamin.png"
+                },
+                new Author
+                {
+                    Name = "Christopher MANEU",
+                    Description = "Premier Field Engineer",
+                    Thumbnail=$"ms-appx:///Assets/Images/christopher.png"
+                },
+                new Author
+                {
+                    Name = "Michaël FERY",
+                    Description = "Coach technique .Net",
+                    Thumbnail=$"ms-appx:///Assets/Images/michael.jpg"
+                }
+            };
+            return data;
+        }
+
         private static IEnumerable<Character> AllCharacters()
         {
             // The following is order summary data
@@ -303,6 +330,13 @@ namespace Cliche.Fluent.Services
             await Task.CompletedTask;
 
             return AllMovies();
+        }
+
+        public static async Task<IEnumerable<Author>> GetAllAuthors()
+        {
+            await Task.CompletedTask;
+
+            return Authors();
         }
     }
 }

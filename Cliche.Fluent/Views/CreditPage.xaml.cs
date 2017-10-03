@@ -1,42 +1,24 @@
-﻿using System;
+﻿using Cliche.Fluent.Services;
+using System;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System.Numerics;
+using Windows.UI.Composition;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Hosting;
 
 namespace Cliche.Fluent.Views
 {
-    public sealed partial class CreditPage : Page, INotifyPropertyChanged
+    public sealed partial class CreditPage : Page
     {
         public CreditPage()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void Set<T>(ref T storage, T value, [CallerMemberName]string propertyName = null)
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            if (Equals(storage, value))
-            {
-                return;
-            }
-
-            storage = value;
-            OnPropertyChanged(propertyName);
-        }
-
-        private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-        private void MoviePagePage_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            ConnectedAnimation imageAnimation =
-                ConnectedAnimationService.GetForCurrentView().GetAnimation("movieImage");
-            if (imageAnimation != null)
-            {
-                imageAnimation.TryStart(BackgroundImage);
-            }
+            Items.ItemsSource = await SampleDataService.GetAllAuthors();
         }
     }
 }

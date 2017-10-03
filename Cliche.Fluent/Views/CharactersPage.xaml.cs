@@ -85,21 +85,21 @@ namespace Cliche.Fluent.Views
             }
         }
 
-        private void MasterListView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //TODO Connect Animation forward source (code)
-            var item = e?.ClickedItem as Character;
-            if (item != null)
-            {
-                Selected = item;
-                HerosGridView.PrepareConnectedAnimation("characterImage", item, "CharacterThumbImage");
-                HerosGridView.PrepareConnectedAnimation("characterName", item, "CharacterName"); 
-                NavigationService.Navigate<Views.CharactersDetailPage>(item);
+private void MasterListView_ItemClick(object sender, ItemClickEventArgs e)
+{
+    //TODO Connect Animation forward source (code)
+    var item = e?.ClickedItem as Character;
+    if (item != null)
+    {
+        Selected = item;
+        HerosGridView.PrepareConnectedAnimation("characterImage", item, "CharacterThumbImage");
+        HerosGridView.PrepareConnectedAnimation("characterName", item, "CharacterName"); 
+        NavigationService.Navigate<Views.CharactersDetailPage>(item);
                 
-                //TODO Navigation transition request
-                //NavigationService.Navigate<Views.CharactersPageDetailPage>(item, new DrillInNavigationTransitionInfo());
-            }
-        }
+        //TODO Navigation transition request
+        //NavigationService.Navigate<Views.CharactersPageDetailPage>(item, new DrillInNavigationTransitionInfo());
+    }
+}
 
         public event PropertyChangedEventHandler PropertyChanged;
 

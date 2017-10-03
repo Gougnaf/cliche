@@ -4,52 +4,60 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Loaded="MoviePagePage_OnLoaded"
+    xmlns:behaviors="using:Cliche.Fluent.Behaviors"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:models="using:Cliche.Fluent.Models"
+    Loaded="Page_Loaded"
     mc:Ignorable="d">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition x:Name="TitleRow" Height="48"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <Image
-            x:Name="BackgroundImage"
-            Source="ms-appx:///Assets/Images/movie_LordOfRing_nb.jpg"
-            Stretch="UniformToFill"
-            Grid.Row="0"
-            Grid.RowSpan="2"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"/>
-
-        <TextBlock
-            Grid.Row="0"
-            x:Name="TitlePage"
-            x:Uid="MoviePage_Pivot"
-            Text="Navigation Item 1"
-            Style="{StaticResource PageTitleStyle}"
-            Margin="12,0,12,7"/>
-
-        <Pivot Grid.Row="1">
-            <PivotItem x:Uid="MoviePage_PivotItem1">
-                <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-                    
-                    <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                    Place your content here.-->
-                    
-
-                </Grid>
-            </PivotItem>
-
-            <PivotItem x:Uid="MoviePage_PivotItem2">
-                <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-                    
-                    <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                    Place your content here.-->
-                    
-
-                </Grid>
-            </PivotItem>
-        </Pivot>
+    <Grid Background="{StaticResource AcrycliTransparentBrush}">
+        <!--<Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF3062B9" Offset="0"/>
+                <GradientStop Color="#FFBBCEF1" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>-->
+        <!--<ScrollViewer VerticalScrollMode="Disabled" HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Auto">-->
+            <ItemsControl x:Name="Items"
+                          HorizontalAlignment="Center">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="models:Author">
+                        <Grid Margin="50">
+                            <Canvas x:Name ="InfoCanvas" Width="300" Height="400" >
+                            <Grid x:Name="Info" Width="300" Height="400" Background="White">
+                                    <StackPanel VerticalAlignment="Bottom"
+                                                Margin="10 0 0 10">
+                                        <TextBlock Text="{x:Bind Name}" FontSize="24" TextWrapping="Wrap" FontWeight="SemiBold" Margin="4,0"
+                                                   Foreground="{StaticResource SecondaryColorBrush}"/>
+                                    <TextBlock Text="{x:Bind Description}" FontSize="16" FontWeight="Light" Margin="4,0"
+                                                   Foreground="{StaticResource SecondaryColorBrush}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Canvas>
+                            <Grid x:Name="Image" Width="300" Height="400">
+                                <Canvas>
+                                <Grid x:Name="Photo" Width="300" Height="400">
+                                        <Image Width="300" Height="400" Stretch="UniformToFill">
+                                            <Image.Source>
+                                                <BitmapImage UriSource ="{x:Bind Thumbnail}"/>
+                                            </Image.Source>
+                                        </Image>
+                                        <!--<TextBlock x:Name="NameText" Text="{x:Bind Name}" VerticalAlignment="Top" FontSize="30" Foreground="White" Margin="4,0,0,0"/>-->
+                                    </Grid>
+                                </Canvas>
+                            </Grid>
+                            <interactivity:Interaction.Behaviors>
+                                <behaviors:InteractionBehavior HittestContent="{Binding ElementName=Image}" InfoContent="{Binding ElementName=Info}" PhotoContent="{Binding ElementName=Photo}" InfoContainer ="{Binding ElementName=InfoCanvas}" />
+                            </interactivity:Interaction.Behaviors>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        <!--</ScrollViewer>-->
     </Grid>
 </Page>

@@ -94,7 +94,7 @@ namespace Cliche.Fluent.Views
             
             _primaryItems.Add(ShellNavigationItem.FromType<MoviesPage>("Shell_MoviesPage".GetLocalized(), "ms-appx:///Assets/Picto/picto_clap.png"));
             _primaryItems.Add(ShellNavigationItem.FromType<CharactersPage>("Shell_CharactersPage".GetLocalized(), "ms-appx:///Assets/Picto/picto_bobbafet.png"));
-            _primaryItems.Add(ShellNavigationItem.FromType<CreditPage>("Shell_MoviePage".GetLocalized(), "ms-appx:///Assets/Picto/picto_loupe.png"));
+            _primaryItems.Add(ShellNavigationItem.FromType<CreditPage>("Shell_CreditPage".GetLocalized(), "ms-appx:///Assets/Picto/picto_loupe.png"));
 
             ChangeSelected(_lastSelectedItem, _primaryItems.First());
         }

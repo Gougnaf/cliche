@@ -107,28 +107,28 @@
                                             <SolidColorBrush x:Name="ButtonBrush" Color="Transparent"/>
                                         </Grid.Background>
                                     </Grid>
-                                    <VisualStateManager.VisualStateGroups>
-                                        <VisualStateGroup x:Name="CommonStates">
-                                            <VisualState x:Name="Normal" />
-                                            <VisualState x:Name="Pressed">
-                                                <VisualState.Setters>
-                                                    <Setter Target="RootGrid.(RevealBrush.State)" Value="Pressed" />
-                                                    <Setter Target="Overlay.Background" Value="{ThemeResource ButtonRevealBackgroundPressed}"/>
-                                                    <Setter Target="PressedOverlay.Background" Value="#A000"/>
-                                                    <Setter Target="RootGrid.BorderBrush" Value="{ThemeResource ButtonRevealBorderBrushPointerOver}"/>
-                                                    <Setter Target="ContentPresenter.BorderBrush" Value="{ThemeResource ButtonRevealBorderBrushPressed}"/>
-                                                    <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource ButtonForegroundPressed}"/>
-                                                </VisualState.Setters>
-                                            </VisualState>
-                                            <VisualState x:Name="PointerOver">
-                                                <VisualState.Setters>
-                                                    <Setter Target="RootGrid.(RevealBrush.State)" Value="PointerOver" />
-                                                    <Setter Target="Overlay.Background" Value="{ThemeResource ButtonRevealBackgroundPointerOver}"/>
-                                                    <Setter Target="PressedOverlay.Background" Value="#4000"/>
-                                                    <Setter Target="RootGrid.BorderBrush" Value="{ThemeResource ButtonRevealBorderBrushPointerOver}"/>
-                                                    <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource ButtonForegroundPointerOver}"/>
-                                                </VisualState.Setters>
-                                            </VisualState>
+<VisualStateManager.VisualStateGroups>
+    <VisualStateGroup x:Name="CommonStates">
+        <VisualState x:Name="Normal" />
+        <VisualState x:Name="Pressed">
+            <VisualState.Setters>
+                <Setter Target="RootGrid.(RevealBrush.State)" Value="Pressed" />
+                <Setter Target="Overlay.Background" Value="{ThemeResource ButtonRevealBackgroundPressed}"/>
+                <Setter Target="PressedOverlay.Background" Value="#A000"/>
+                <Setter Target="RootGrid.BorderBrush" Value="{ThemeResource ButtonRevealBorderBrushPointerOver}"/>
+                <Setter Target="ContentPresenter.BorderBrush" Value="{ThemeResource ButtonRevealBorderBrushPressed}"/>
+                <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource ButtonForegroundPressed}"/>
+            </VisualState.Setters>
+        </VisualState>
+        <VisualState x:Name="PointerOver">
+            <VisualState.Setters>
+                <Setter Target="RootGrid.(RevealBrush.State)" Value="PointerOver" />
+                <Setter Target="Overlay.Background" Value="{ThemeResource ButtonRevealBackgroundPointerOver}"/>
+                <Setter Target="PressedOverlay.Background" Value="#4000"/>
+                <Setter Target="RootGrid.BorderBrush" Value="{ThemeResource ButtonRevealBorderBrushPointerOver}"/>
+                <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource ButtonForegroundPointerOver}"/>
+            </VisualState.Setters>
+        </VisualState>
                                             <VisualState x:Name="PointerOverSelected">
                                                 <VisualState.Setters>
                                                     <Setter Target="RootGrid.(RevealBrush.State)" Value="PointerOver" />

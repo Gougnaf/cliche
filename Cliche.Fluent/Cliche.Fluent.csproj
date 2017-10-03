@@ -108,6 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activation\ActivationHandler.cs" />
+    <Compile Include="Behaviors\InteractionBehavior.cs" />
+    <Compile Include="Brushes\ImageEffectBrush.cs" />
+    <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Services\ActivationService.cs" />
@@ -119,6 +122,9 @@
     </Compile>
     <Compile Include="Views\CharactersPage.xaml.cs">
       <DependentUpon>CharactersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TiltAnimation.xaml.cs">
+      <DependentUpon>TiltAnimation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MoviesPage.xaml.cs">
       <DependentUpon>MoviesPage.xaml</DependentUpon>
@@ -169,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\TiltAnimation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\CreditPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -197,12 +207,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Assets\Images\benjamin.png" />
+    <Content Include="Assets\Images\christopher.png" />
     <Content Include="Assets\Images\DesignSampleToRemove.png" />
     <Content Include="Assets\Images\DesignSampleToRemove2.png" />
     <Content Include="Assets\Images\DesignSampleToRemove3.png" />
     <Content Include="Assets\Images\gandalf.jpg" />
     <Content Include="Assets\Images\karate-kid-affiche.jpg" />
     <Content Include="Assets\Images\Le_Seigneur_des_Anneaux_La_Communaute_de_l_anneau.jpg" />
+    <Content Include="Assets\Images\michael.jpg" />
     <Content Include="Assets\Images\movie_LordOfRing_nb.jpg" />
     <Content Include="Assets\Images\perso_frodonSacquet.jpg" />
     <Content Include="Assets\Images\poster-france-back-to-the-future-1-different-2.jpg" />
