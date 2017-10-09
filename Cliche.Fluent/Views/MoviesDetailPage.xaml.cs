@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Graphics.Canvas.Effects;
+using Windows.UI.Xaml.Shapes;
+using System.Numerics;
 
 namespace Cliche.Fluent.Views
 {
@@ -28,7 +30,9 @@ namespace Cliche.Fluent.Views
         public MoviesDetailPage()
         {
             InitializeComponent();
+
             InitializeFrostedGlass(GlassHost);
+            InitializeDropShadow(ShadowHost, PosterImage);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -62,14 +66,24 @@ namespace Cliche.Fluent.Views
         private void MoviesPageDetailPage_OnLoaded(object sender, RoutedEventArgs e)
         {
             ConnectedAnimation imageAnimation =
-                ConnectedAnimationService.GetForCurrentView().GetAnimation("movieImage");
+                ConnectedAnimationService.GetForCurrentView().GetAnimation("imageAnimation");
             if (imageAnimation != null)
             {
-                imageAnimation.TryStart(BackgroundImage);
+                imageAnimation.TryStart(PosterImage);
+            }
+
+            ConnectedAnimation nameAnimation =
+                ConnectedAnimationService.GetForCurrentView().GetAnimation("nameAnimation");
+            if (nameAnimation != null)
+            {
+                nameAnimation.TryStart(MovieName);
             }
         }
 
-        //TODO FrostedGlass Effect
+        /// <summary>
+        /// Initialize the FrostedGlass Effect
+        /// </summary>
+        /// <param name="glassHost"></param>
         private void InitializeFrostedGlass(UIElement glassHost)
         {
             Visual hostVisual = ElementCompositionPreview.GetElementVisual(glassHost);
@@ -88,7 +102,7 @@ namespace Cliche.Fluent.Views
                     Source1 = new CompositionEffectSourceParameter("backdropBrush"),
                     Source2 = new ColorSourceEffect
                     {
-                        Color = Color.FromArgb(255, 245, 245, 245)
+                        Color = Color.FromArgb(255, 0, 0, 0)
                     }
                 }
             };
@@ -112,6 +126,33 @@ namespace Cliche.Fluent.Views
             bindSizeAnimation.SetReferenceParameter("hostVisual", hostVisual);
 
             glassVisual.StartAnimation("Size", bindSizeAnimation);
+        }
+
+        private void InitializeDropShadow(UIElement shadowHost, Image shadowTarget)
+        {
+            Visual hostVisual = ElementCompositionPreview.GetElementVisual(shadowHost);
+            Compositor compositor = hostVisual.Compositor;
+
+            // Create a drop shadow
+            var dropShadow = compositor.CreateDropShadow();
+            dropShadow.Color = Color.FromArgb(255, 0, 0, 0);
+            dropShadow.BlurRadius = 15.0f;
+            dropShadow.Offset = new Vector3(2.5f, 2.5f, 0.0f);
+            // Associate the shape of the shadow with the shape of the target element
+            dropShadow.Mask = shadowTarget.GetAlphaMask();
+
+            // Create a Visual to hold the shadow
+            var shadowVisual = compositor.CreateSpriteVisual();
+            shadowVisual.Shadow = dropShadow;
+
+            // Add the shadow as a child of the host in the visual tree
+            ElementCompositionPreview.SetElementChildVisual(shadowHost, shadowVisual);
+
+            // Make sure size of shadow host and shadow visual always stay in sync
+            var bindSizeAnimation = compositor.CreateExpressionAnimation("hostVisual.Size");
+            bindSizeAnimation.SetReferenceParameter("hostVisual", hostVisual);
+
+            shadowVisual.StartAnimation("Size", bindSizeAnimation);
         }
     }
 }

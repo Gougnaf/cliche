@@ -226,72 +226,76 @@ namespace Cliche.Fluent.Services
                 {
                     MovieId = 0,
                     Name = "KARATÉ KID",
-                    Description = "Description",
+                    Subtitle = "le moment de vérité",
+                    Description = LoremIpsum + LoremIpsum,
                     Duration = 75,
-                    Tags = new List<string>() {"", "", ""},
+                    Tags = new List<string>() {"BAGARRE", "KARATE"},
                     Poster = "ms-appx:///Assets/Images/karate-kid-affiche.jpg",
                     Thumbnail = "ms-appx:///Assets/Picto/filmThumb-(2).jpg"
                 },
                 new Movie
                 {
                     Name = "LE SEIGNEUR DES ANNEAUX",
-                    Description = "Description",
+                    Subtitle = "La communauté de l'anneau",
                     Duration = 75,
-                    Tags = new List<string>() {"", "", ""},
+                    Description = LoremIpsum + LoremIpsum,
+                    Tags = new List<string>() {"COMMUNAUTÉ", "TOLKIEN", "PASSE-PARTOUT"},
                     Poster=$"ms-appx:///Assets/Images/Le_Seigneur_des_Anneaux_La_Communaute_de_l_anneau.jpg",
                     Thumbnail = "ms-appx:///Assets/Picto/filmThumb-(3).jpg"
                 },
                 new Movie
                 {
                     Name = "RETOUR VERS LE FUTUR",
-                    Description = "Description",
+                    Description = LoremIpsum + LoremIpsum,
                     Duration = 75,
-                    Tags = new List<string>() {"", "", ""},
+                    Tags = new List<string>() {"PASSÉ", "PRESENT", "FUTUR"},
                     Poster=$"ms-appx:///Assets/Picto/filmAffiche-(6).jpg",
                     Thumbnail = "ms-appx:///Assets/Picto/filmThumb-(4).jpg"
                 },
                 new Movie
                 {
                     Name = "STAR WARS",
-                    Description = "Description",
+                    Subtitle = "Le retour du Jedi",
+                    Description = LoremIpsum + LoremIpsum,
                     Duration = 134,
-                    Tags = new List<string>() {"", "", ""},
+                    Tags = new List<string>() {"LUKE", "JE SUIS TON PÈRE"},
                     Poster=$"ms-appx:///Assets/Picto/filmAffiche-(10).jpg",
                     Thumbnail = "ms-appx:///Assets/Picto/filmThumb-(5).jpg"
                 },
                 new Movie
                 {
                     Name = "THE LAST STARFIGHTER",
-                    Description = "Description",
+                    Description = LoremIpsum + LoremIpsum,
                     Duration = 86,
-                    Tags = new List<string>() {"", "", ""},
+                    Tags = new List<string>() {"JEUX VIDEOS", "ESPACE", "PILOTE"},
                     Poster=$"ms-appx:///Assets/Picto/filmAffiche-(2).jpg",
                     Thumbnail = "ms-appx:///Assets/Picto/filmThumb-(6).jpg"
                 },
                 new Movie
                 {
                     Name = "HARRY POTTER",
-                    Description = "Description",
+                    Subtitle = "L'école des sorciers",
+                    Description = LoremIpsum + LoremIpsum,
                     Duration = 110,
-                    Tags = new List<string>() {"", "", ""},
+                    Tags = new List<string>() {"POUDLARD", "GERARD MAJAX"},
                     Poster=$"ms-appx:///Assets/Picto/filmAffiche-(9).jpg",
                     Thumbnail = "ms-appx:///Assets/Picto/filmThumb-(11).jpg"
                 },
                 new Movie
                 {
                     Name = "AVATAR",
-                    Description = "Description",
+                    Description = LoremIpsum + LoremIpsum,
                     Duration = 132,
-                    Tags = new List<string>() {"", "", ""},
+                    Tags = new List<string>() {"3D", "SCHTROUMPF"},
                     Poster=$"ms-appx:///Assets/Picto/filmAffiche-(1).jpg",
                     Thumbnail = "ms-appx:///Assets/Picto/filmThumb-(10).jpg"
                 },
                 new Movie
                 {
                     Name = "MATRIX",
-                    Description = "Description",
+                    Description = LoremIpsum + LoremIpsum,
                     Duration = 112,
-                    Tags = new List<string>() {"", "", ""},
+                    Tags = new List<string>() {"REALITÉ VIRTUELLE", "IA", "L'ÉLU"},
                     Poster=$"ms-appx:///Assets/Picto/filmAffiche-(7).jpg",
                     Thumbnail = "ms-appx:///Assets/Picto/filmThumb-(9).jpg"
                 },
@@ -300,16 +304,17 @@ namespace Cliche.Fluent.Services
                     Name = "TERMINATOR",
                     Description = "Description",
                     Duration = 89,
-                    Tags = new List<string>() {"", "", ""},
+                    Tags = new List<string>() {"IA", "ROBOT", "FUTUR"},
                     Poster=$"ms-appx:///Assets/Picto/filmAffiche-(3).jpg",
                     Thumbnail = "ms-appx:///Assets/Picto/filmThumb-(8).jpg"
                 },
                 new Movie
                 {
                     Name = "HIGHLANDER",
-                    Description = "Description",
+                    Subtitle = "il n'en restera qu'un",
+                    Description = LoremIpsum + LoremIpsum,
                     Duration = 147,
-                    Tags = new List<string>() {"", "", ""},
+                    Tags = new List<string>() {"MC LEOD", "QUICKENING"},
                     Poster=$"ms-appx:///Assets/Picto/filmThumb-(7).jpg",
                     Thumbnail = "ms-appx:///Assets/Picto/filmThumb-(7).jpg"
                 },

@@ -166,7 +166,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <!--TODO Connect Animation forward source (xaml 1/2)-->
+                <!-- Connect Animation forward source (xaml 1/2)-->
                 <Grid
                     x:Name="CharacterThumbImage"
                     Width="275"
@@ -219,7 +219,7 @@
                         SelectionMode="None"
                         Loaded="HerosGridView_OnLoaded"
                         ItemClick="MasterListView_ItemClick">
-                        <!--TODO Connect Animation forward source (xaml 2/2)-->
+                        <!-- Connect Animation forward source (xaml 2/2)-->
                         <GridView.ItemContainerStyle>
                             <Style TargetType="GridViewItem">
                                 <Setter Property="Padding" Value="0"/>

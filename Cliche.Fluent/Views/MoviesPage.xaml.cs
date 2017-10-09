@@ -8,11 +8,18 @@ using Cliche.Fluent.Services;
 
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Composition;
+using Windows.UI.Xaml.Hosting;
+using Windows.UI.Xaml.Media.Animation;
+using System;
+using System.Numerics;
 
 namespace Cliche.Fluent.Views
 {
     public sealed partial class MoviesPage : Page, INotifyPropertyChanged
     {
+        Compositor _compositor;
+
         private Movie _selected;
 
         public Movie Selected
@@ -26,6 +33,14 @@ namespace Cliche.Fluent.Views
         public MoviesPage()
         {
             InitializeComponent();
+            // Connect Animation custom settings, the default animation is 0.8s with no easig and may need to be customized
+            _compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
+            var connectedAnimationService = ConnectedAnimationService.GetForCurrentView();
+            connectedAnimationService.DefaultDuration = TimeSpan.FromSeconds(1.0);
+            connectedAnimationService.DefaultEasingFunction = _compositor.CreateCubicBezierEasingFunction(
+                new Vector2(0.41f, 0.52f),
+                new Vector2(0.00f, 0.94f)
+            );
         }
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
@@ -51,10 +66,11 @@ namespace Cliche.Fluent.Views
             if (item != null)
             {
                 Selected = item;
-                MasterListView.PrepareConnectedAnimation("movieImage", item, "MovieThumbImage");
+                MasterListView.PrepareConnectedAnimation("imageAnimation", item, "MovieThumbImage");
+                MasterListView.PrepareConnectedAnimation("nameAnimation", item, "MovieName");
                 NavigationService.Navigate<Views.MoviesDetailPage>(item);
 
-                //TODO Navigation transition request
+                //Add Navigation transition request if necessary
                 //NavigationService.Navigate<Views.CharactersPageDetailPage>(item, new DrillInNavigationTransitionInfo());
             }
         }

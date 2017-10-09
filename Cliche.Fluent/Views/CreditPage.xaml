@@ -11,14 +11,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource AcrycliTransparentBrush}">
-        <!--<Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF3062B9" Offset="0"/>
-                <GradientStop Color="#FFBBCEF1" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>-->
-        <!--<ScrollViewer VerticalScrollMode="Disabled" HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Auto">-->
-            <ItemsControl x:Name="Items"
+        <ItemsControl x:Name="Items"
                           HorizontalAlignment="Center">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -29,25 +22,20 @@
                     <DataTemplate x:DataType="models:Author">
                         <Grid Margin="50">
                             <Canvas x:Name ="InfoCanvas" Width="300" Height="400" >
-                            <Grid x:Name="Info" Width="300" Height="400" Background="White">
+                                <Grid x:Name="Info" Width="300" Height="400" Background="White">
                                     <StackPanel VerticalAlignment="Bottom"
                                                 Margin="10 0 0 10">
                                         <TextBlock Text="{x:Bind Name}" FontSize="24" TextWrapping="Wrap" FontWeight="SemiBold" Margin="4,0"
                                                    Foreground="{StaticResource SecondaryColorBrush}"/>
-                                    <TextBlock Text="{x:Bind Description}" FontSize="16" FontWeight="Light" Margin="4,0"
+                                        <TextBlock Text="{x:Bind Description}" FontSize="16" FontWeight="Light" Margin="4,0"
                                                    Foreground="{StaticResource SecondaryColorBrush}"/>
                                     </StackPanel>
                                 </Grid>
                             </Canvas>
                             <Grid x:Name="Image" Width="300" Height="400">
                                 <Canvas>
-                                <Grid x:Name="Photo" Width="300" Height="400">
-                                        <Image Width="300" Height="400" Stretch="UniformToFill">
-                                            <Image.Source>
-                                                <BitmapImage UriSource ="{x:Bind Thumbnail}"/>
-                                            </Image.Source>
-                                        </Image>
-                                        <!--<TextBlock x:Name="NameText" Text="{x:Bind Name}" VerticalAlignment="Top" FontSize="30" Foreground="White" Margin="4,0,0,0"/>-->
+                                    <Grid x:Name="Photo" Width="300" Height="400">
+                                        <Image Source="{x:Bind Thumbnail}" Stretch="UniformToFill" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                     </Grid>
                                 </Canvas>
                             </Grid>

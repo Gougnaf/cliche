@@ -28,29 +28,102 @@
                 VerticalAlignment="Center"/>
             <Canvas
                 x:Name="GlassHost" />
+            <!--<Image Source="ms-appx:///Assets/Images/DesignSampleToRemove3.jpg"
+                       Margin="-283 0 0 0"/>-->
         </Grid>
 
-        <TextBlock
-            x:Name="TitlePage"
-            Text="{x:Bind Item.MovieId, Mode=OneWay}"
-            Style="{StaticResource PageTitleStyle}" />
-
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center"
-                    Grid.Row="1">
-            <Viewbox Width="300">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top"
+                    Grid.Row="1"
+                    HorizontalAlignment="Left"
+                    Margin="280 164 0 0">
+            <Grid Width="460" Height="600">
+                <Canvas x:Name="ShadowHost" />
                 <Image
+                    x:Name="PosterImage"
                     Stretch="UniformToFill"
                     Source="{x:Bind Item.Thumbnail, Mode=OneWay}"
                     Width="432"
                     Height="574"
-                    HorizontalAlignment="Center"
                     VerticalAlignment="Center"/>
-            </Viewbox>
+            </Grid>
+            <StackPanel Orientation="Vertical" Width="650">
+                <TextBlock
+                    x:Name="MovieName"
+                    HorizontalAlignment="Center"
+                    Margin="0 5 0 0"
+                    FontSize="40"
+                    Style="{StaticResource ListTitleStyle}"
+                    FontWeight="Normal">
+                    <Run Text="{x:Bind Item.Name, Mode=OneWay}"/>
+                    <Run Text=":"/>
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    x:Name="MovieSubtitle"
+                    Text="{x:Bind Item.Subtitle, Mode=OneWay}"
+                    Style="{StaticResource BodyTextStyle}"
+                    FontSize="38"
+                    FontWeight="Normal"/>
+
+                <ItemsControl
+                    Margin="0 24 0 0"
+                    HorizontalAlignment="Center"
+                    ItemsSource="{x:Bind Item.Tags}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <Border x:Name="Border"
+                                    Background="White"
+                                    Margin="0 0 30 0"
+                                    CornerRadius="16">
+                                <TextBlock
+                                    Text="{x:Bind}"
+                                    Margin="16 6"
+                                    FontSize="18"
+                                    FontWeight="Medium"
+                                    Foreground="DodgerBlue"/>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <ScrollViewer Height="220"
+                              Margin="32 60 0 0"
+                              VerticalScrollBarVisibility="Visible">
+                    <TextBlock
+                        Margin="0 0 40 0"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        x:Name="Description"
+                        Text="{x:Bind Item.Description, Mode=OneWay}"
+                        Style="{StaticResource BodyTextStyle}"
+                        FontSize="20"
+                        FontWeight="Bold"/>
+                </ScrollViewer>
+
+                <Border x:Name="Border"
+                        Background="{StaticResource MainColorBrush}"
+                        HorizontalAlignment="Center"
+                        Margin="0 30 0 0"
+                        CornerRadius="16">
+                    <TextBlock
+                        Text="BANDE ANNONCE"
+                        Margin="32 16"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Foreground="Black"/>
+                </Border>
+            </StackPanel>
+
         </StackPanel>
 
         <!--  Adaptive triggers  -->
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="WindowStates" CurrentStateChanged="WindowStates_CurrentStateChanged">         
+            <VisualStateGroup x:Name="WindowStates" CurrentStateChanged="WindowStates_CurrentStateChanged">
                 <VisualState x:Name="WideState">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="640"/>

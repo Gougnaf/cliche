@@ -35,7 +35,7 @@ namespace Cliche.Fluent.Views
 
         private void CharactersPageDetailPage_OnLoaded(object sender, RoutedEventArgs e)
         {
-            //TODO Connect Animation forward destination
+            // Connect Animation forward destination
             ConnectedAnimation imageAnimation = ConnectedAnimationService.GetForCurrentView().GetAnimation("characterImage");            
             if (imageAnimation != null)
             {
@@ -53,7 +53,7 @@ namespace Cliche.Fluent.Views
         {
             base.OnNavigatingFrom(e);
 
-            //TODO Connect Animation backward source
+            // Connect Animation backward source
             if (e.SourcePageType == typeof(CharactersPage))
             {
                 ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("characterImage", CharacterImage);

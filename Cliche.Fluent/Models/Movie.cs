@@ -8,6 +8,8 @@ namespace Cliche.Fluent.Models
 
         public string Name { get; set; }
 
+        public string Subtitle { get; set; }
+
         public string Poster { get; set; }
 
         public string Thumbnail { get; set; }

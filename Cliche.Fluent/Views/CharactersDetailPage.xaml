@@ -9,34 +9,35 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Grid>
-<ParallaxView
-    Source="{x:Bind ContentArea}"
-    VerticalShift="40"
-    Grid.RowSpan="2"
-    x:Name="BackgroundArea"
-    VerticalAlignment="Top">
-    <Grid Height="430"
-            VerticalAlignment="Top">
-            <Image
-            Source="ms-appx:///Assets/Images/movie_LordOfRing_nb.jpg"
-            Stretch="UniformToFill"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"/>
-<Grid
-    VerticalAlignment="Top"
-    Height="430">
-    <!--Background="{StaticResource MyAcrylicBrush}">-->
-    <Grid.Background>
-        <AcrylicBrush
-            BackgroundSource="Backdrop"
-            TintColor="{StaticResource AcrylicColor}"
-            TintOpacity="0.5"
-            FallbackColor="{StaticResource AcrylicColor}"/>
-    </Grid.Background>
-</Grid>
+        <Grid Height="430" VerticalAlignment="Top">
+            <ParallaxView
+                Source="{x:Bind ContentArea}"
+                Height="430"
+                VerticalShift="40"
+                Grid.RowSpan="2"
+                x:Name="BackgroundArea"
+                VerticalAlignment="Top">
+                <Grid 
+                        VerticalAlignment="Top">
+                    <Image
+                        Source="ms-appx:///Assets/Images/movie_LordOfRing_nb.jpg"
+                        Stretch="UniformToFill"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"/>
                 </Grid>
             </ParallaxView>
+            <Grid
+                Height="430"
+                VerticalAlignment="Top">
+                <!--Background="{StaticResource MyAcrylicBrush}">-->
+                <Grid.Background>
+                    <AcrylicBrush
+                            BackgroundSource="Backdrop"
+                            TintColor="{StaticResource AcrylicColor}"
+                            TintOpacity="0.5"
+                            FallbackColor="{StaticResource AcrylicColor}"/>
+                </Grid.Background>
+            </Grid>
         </Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -57,7 +58,7 @@
                             VerticalAlignment="Top"
                             Margin="46 0">
 
-                    <!--TODO Connect Animation forward source (xaml 1/2)-->
+                    <!-- Connect Animation forward source (xaml 1/2)-->
                     <Grid
                             x:Name="CharacterImage"
                             Margin="0 10"
@@ -86,13 +87,13 @@
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
-                                <DataTemplate>
+                                <DataTemplate x:DataType="x:String">
                                     <Border x:Name="Border"
                                             Background="White"
                                             Margin="0 0 30 0"
                                             CornerRadius="16">
                                         <TextBlock
-                                            Text="BALROG SLAYER"
+                                            Text="{Binding}"
                                             Margin="16 6"
                                             FontSize="18"
                                             FontWeight="Medium"

@@ -39,7 +39,7 @@ namespace Cliche.Fluent.Views
         {
             NavigationCacheMode = NavigationCacheMode.Required;
 
-            //TODO Connect Animation custom settings
+            // Connect Animation custom settings
             _compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
             var connectedAnimationService = ConnectedAnimationService.GetForCurrentView();
             connectedAnimationService.DefaultDuration = TimeSpan.FromSeconds(1.0);
@@ -87,7 +87,7 @@ namespace Cliche.Fluent.Views
 
 private void MasterListView_ItemClick(object sender, ItemClickEventArgs e)
 {
-    //TODO Connect Animation forward source (code)
+    // Connect Animation forward source (code)
     var item = e?.ClickedItem as Character;
     if (item != null)
     {
@@ -96,7 +96,7 @@ private void MasterListView_ItemClick(object sender, ItemClickEventArgs e)
         HerosGridView.PrepareConnectedAnimation("characterName", item, "CharacterName"); 
         NavigationService.Navigate<Views.CharactersDetailPage>(item);
                 
-        //TODO Navigation transition request
+        //You can add Navigation transition request
         //NavigationService.Navigate<Views.CharactersPageDetailPage>(item, new DrillInNavigationTransitionInfo());
     }
 }
@@ -120,7 +120,7 @@ private void MasterListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (Selected == null) return;
 
-            //TODO Connected Animation backward destination
+            // Connected Animation backward destination
             Character item = HeroItems.First(h => h.CharacterId == Selected.CharacterId); // Get persisted item
             if (item != null)
             {
