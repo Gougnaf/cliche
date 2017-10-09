@@ -3,7 +3,7 @@ Cliche is the demo app shown in Microsoft Experiences 2017 Session [**Fluent Des
 
 ![Cliche](/Cliche.Fluent/Assets/Images/DesignSampleToRemove2.png)
 
-Slides of the session will be published ssoon !
+Slides of the session can be accessed on [Speaker Deck](https://speakerdeck.com/cmaneu/fluent-design-system-and-les-nouvelles-interfaces-windows)
 
 Please remind the source code has been develop for a talk session and may contains bugs.
 
