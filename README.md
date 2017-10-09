@@ -1,7 +1,7 @@
 # Cliche
 Cliche is the demo app shown in Microsoft Experiences 2017 Session [**Fluent Design System & les nouvelles interfaces Windows**](https://experiences17.microsoft.fr/session/86164eda-7a61-e711-80c2-000d3a210b7f "allay")
 
-![Cliche](/images/cliche.png)
+![Cliche](/Cliche.Fluent/Assets/Images/DesignSampleToRemove2.png)
 
 Slides of the session will be published ssoon !
 
