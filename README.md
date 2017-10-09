@@ -9,7 +9,7 @@ Please remind the source code has been develop for a talk session and may contai
 
 For updates about Benjamin Launay, follow [@_aieaieeye](http://twitter.com/AieAieEye "@AieAieEye on Twitter").
 
-For updates about Michaël Fery, follow [@_mfery](http://twitter.com/windowsui "@_mfery on Twitter").
+For updates about Michaël Fery, follow [@_mfery](http://twitter.com/_mfery "@_mfery on Twitter").
 
 For updates about Christopher Maneu, follow [@_cmaneu](http://twitter.com/cmaneu "@cmaneu on Twitter").
 
